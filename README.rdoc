@@ -1,0 +1,78 @@
+= heroswitch
+
+* http://github.com/JohnFord/heroswitch
+
+== DESCRIPTION:
+
+Heroswitch allows you to easily switch between multiple Heroku account profiles. For example, if you have a work and a personal account, or if you have a seperate account for each client you work with, switching between account manually can be a tedious process.  With just a few lines of configuration, heroswitch solves that pain.
+
+== REQUIREMENTS:
+
+You will need to create a credentials file in ~/.heroku for each account you wish to switch between. Name the files account_name.credentials.  Example:
+
+work.credentials file:
+  username@work.com
+	work_heroku_password
+
+personal.credentials file:
+  username@gmail.com
+	personal_heroku_password
+
+(Sorry about the plaintext credentials.  Talk to Heroku about that!)
+
+You will also want to setup a special ssh-config for each account in your ~/.ssh/config file. You will need a section for each account, changing the Host param to match the name of your account.
+
+  Host personal.heroku.com
+	HostName heroku.com
+	User git
+	IdentityFile ~/.ssh/path/to/personal/account/private_key.identity
+	IdentitiesOnly yes
+
+Last, you will need to remember to use "account".heroku.com when adding heroku remotes. i.e.:
+
+  $ git remote add heroku git@personal.heroku.com:MyApp.git
+
+
+== INSTALL:
+
+The <code>heroswitch</code> application is distributed as a RubyGem and is available immediately after installation.
+
+  sudo gem install heroswitch
+
+Alternately, download the gem and install manually.
+
+== USAGE
+
+Print your current credentials to the screen
+  $ heroswitch
+
+Show a list of the accounts for which you've setup credentials
+	$ heroswitch -l
+
+Switch to a different account profile
+	$heroswitch personal
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2010 John Ford
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

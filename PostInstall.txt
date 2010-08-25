@@ -1,0 +1,3 @@
+
+For more information on heroswitch, see http://github.com/JohnFord/heroswitch
+
