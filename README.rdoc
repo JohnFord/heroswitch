@@ -12,21 +12,21 @@ You will need to create a credentials file in ~/.heroku for each account you wis
 
 work.credentials file:
   username@work.com
-	work_heroku_password
+  work_heroku_password
 
 personal.credentials file:
   username@gmail.com
-	personal_heroku_password
+  personal_heroku_password
 
 (Sorry about the plaintext credentials.  Talk to Heroku about that!)
 
 You will also want to setup a special ssh-config for each account in your ~/.ssh/config file. You will need a section for each account, changing the Host param to match the name of your account.
 
   Host personal.heroku.com
-	HostName heroku.com
-	User git
-	IdentityFile ~/.ssh/path/to/personal/account/private_key.identity
-	IdentitiesOnly yes
+  HostName heroku.com
+  User git
+  IdentityFile ~/.ssh/path/to/personal/account/private_key.identity
+  IdentitiesOnly yes
 
 Last, you will need to remember to use "account".heroku.com when adding heroku remotes. i.e.:
 
@@ -47,10 +47,10 @@ Print your current credentials to the screen
   $ heroswitch
 
 Show a list of the accounts for which you've setup credentials
-	$ heroswitch -l
+  $ heroswitch -l
 
 Switch to a different account profile
-	$heroswitch personal
+  $ heroswitch personal
 
 == LICENSE:
 
