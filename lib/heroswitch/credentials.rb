@@ -1,4 +1,4 @@
-require "ftools"
+require "fileutils"
 module Heroswitch
   class Credentials
 	  HEROKU_HOME = File.join ENV["HOME"], ".heroku"
