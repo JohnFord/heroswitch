@@ -1,6 +1,8 @@
+require 'lib/heroswitch/version'
+
 spec = Gem::Specification.new do |s|
   s.name = 'heroswitch'
-  s.version = '0.0.1'
+  s.version = Heroswitch::VERSION
   s.author = "John Ford"
   s.email = "jwford@gmail.com"
   s.summary = "Easily switch between multiple heroku accounts."
