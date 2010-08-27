@@ -3,7 +3,6 @@ require 'optparse'
 module Heroswitch
   class CLI
     def self.execute(stdout, arguments=[])
-
       parser = OptionParser.new do |opts|
         opts.banner = <<-BANNER.gsub(/^          /,'')
           Switch easily between multiple heroku envinments.
@@ -15,8 +14,8 @@ module Heroswitch
           Options are:
         BANNER
         opts.separator ""
-				#opts.on("-l", "--list", "List accounts and exit") { options[:list_credentials] = true }
-				opts.on("-l", "--list", "List accounts and exit") { Heroswitch::Credentials.list_credentials; exit }
+        #opts.on("-l", "--list", "List accounts and exit") { options[:list_credentials] = true }
+        opts.on("-l", "--list", "List accounts and exit") { Heroswitch::Credentials.list_credentials; exit }
         opts.on("-h", "--help", "Show this help message.") { stdout.puts opts; exit }
         opts.parse!(arguments)
         opts.banner = <<-BANNER.gsub(/^          /,'')
@@ -26,17 +25,13 @@ module Heroswitch
 
           Options are:
         BANNER
-
       end
-
-			account = ARGV[0]
-
-			if account
-			  Heroswitch::Credentials.switch account
-			else
-			  Heroswitch::Credentials.show_credentials
-			end
-
+      account = ARGV[0]
+      if account
+        Heroswitch::Credentials.switch account
+      else
+        Heroswitch::Credentials.show_credentials
+      end
     end
   end
 end
